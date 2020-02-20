@@ -1,0 +1,68 @@
+import tkinter as tk
+from tkinter import *
+from tkinter.messagebox import *
+from tkinter import messagebox
+
+
+def show_answer():
+    blank.delete(first=0, last=22)
+    Femme_acd = float(num1.get())
+    if 30 <= Femme_acd <= 50:
+        messagebox.showinfo("Normal", "L'acide urique est normal, maintenez votre régime!")
+    elif Femme_acd < 30:
+        messagebox.showinfo("Attention",
+                            "L'acide urique est bas!\nil s'agit d'une hypo-uricémie, veuillez manger les aliments "
+                            "riches en purine comme la viande fumées, l'anchois et les crustacées!")
+    else:
+        messagebox.showinfo("Attention",
+                            "L'acide urique est hors norme:\nIl s'agit d'une hyper-urécimie; veuillez manger des "
+                            "aliments pauvres en purineet consulter votre médecin")
+
+
+def show_answer1():
+    blank.delete(first=0, last=22)
+    Homme_acd = float(num1.get())
+    if 40 <= Homme_acd <= 60:
+        messagebox.showinfo("Normal", "L'acide urique est normal, maintenez votre régime!")
+    elif Homme_acd < 40:
+        messagebox.showinfo("Attention",
+                            "L'acide urique est bas!\nil s'agit d'une hypo-uricémie, veuillez manger les aliments riches en purine comme la viande, l'anchois, les fruits secs!")
+    else:
+        messagebox.showinfo("Attention",
+                            "L'acide urique est hors norme:\nIl s'agit d'une hyper-urécimie; veuillez diminuer les aliments riches en purine comme la viande et les fruits secs!")
+
+
+def show_answer2():
+    blank.delete(first=0, last=22)
+    Enfant_acd = float(num1.get())
+    if 20 <= Enfant_acd <= 50:
+        messagebox.showinfo("Normal", "L'acide urique est normal, maintenez le régime de votre enfant!")
+    elif Enfant_acd < 20:
+        messagebox.showinfo("Attention",
+                            "L'acide urique de votre enfant est hors norme!\nil s'agit d'une hypo-uricémie, veuillez modifier le régime alimentaire de votre enfant tout en lui donnant des aliments riche en acide purique comme les viande fummées, l'anchois et les fruits secs!")
+    else:
+        messagebox.showinfo("Attention",
+                            "L'acide urique est hors norme:\nIl s'agit d'une hyper-urécimie; Veuillez modifier le régime alimentaire de votre enfant tout en lui donnant des aliments pauvres en acide puriques!")
+
+
+main = Tk()
+main.title("Calculateur de l'acide urique")
+main.config(bg="blue")
+main.geometry("300x460")
+Label(main, text="\n\nvotre acide urique:\n", fg="white", bg="black", font=("Helvetica", 12)).grid(
+    row=0, column=1)
+
+num1 = Entry(main)
+blank = Entry(main)
+
+num1.grid(row=1, column=1)
+
+Label(main, text="\n\n please Click under to see your result  : \n", fg="white", bg="black",
+      font=("Helvetica", 11)).grid(row=4, column=1)
+Button(main, text=' Woman ', fg="white", bg="#366fe0", command=show_answer).grid(row=5, column=1, ipadx=20, ipady=6)
+Label(main, text="\n", fg="white", bg="#E74C3C").grid(row=6, column=1)
+Button(main, text='Man', fg="white", bg="#366fe0", command=show_answer1).grid(row=7, column=1, ipadx=20, ipady=6)
+Label(main, text="\n", fg="white", bg="#E74C3C").grid(row=8, column=1)
+Button(main, text='  Child  ', fg="white", bg="#366fe0", command=show_answer2).grid(row=9, column=1, ipadx=20, ipady=6)
+
+mainloop()
